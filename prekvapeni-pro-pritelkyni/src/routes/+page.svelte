@@ -69,7 +69,7 @@
 			const diff = targetDate.getTime() - now.getTime();
 
 			if (diff <= 0) {
-				countdownMessage = 'Teď už si to může uplatnit ❤️';
+				countdownMessage = 'Teď už si to můžeš uplatnit ❤️';
 				countdownActive = false;
 
 				if (countdownInterval) {
@@ -80,7 +80,7 @@
 				return;
 			}
 
-			countdownMessage = `Tenhle kód si může uplatnit až zítra od 10:00 ❤️ Zbývá: ${formatTimeLeft(diff)}`;
+			countdownMessage = `Tenhle kód si můžeš, zlato, uplatnit až zítra od 10:00 ❤️ Zbývá: ${formatTimeLeft(diff)}`;
 		};
 
 		updateCountdown();
