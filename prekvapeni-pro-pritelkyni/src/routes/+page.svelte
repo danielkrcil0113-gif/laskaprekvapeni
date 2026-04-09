@@ -74,7 +74,7 @@
 
 	<div class="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 py-10 text-center">
 		{#if showIntro}
-			<div in:fade={{ duration: 1200 }} class="max-w-2xl">
+			<div in:fade={{ duration: 3200 }} class="max-w-2xl">
 				<div class="mb-6 text-6xl">💗</div>
 				<h1 class="mb-4 text-3xl font-bold leading-tight text-white drop-shadow md:text-4xl">
 					Nevěřil bych, že může být pár dnů bez tebe tak dlouhých,
