@@ -26,7 +26,7 @@ A tohle je teprve začátek našeho malého dobrodružství.`,
 		title: ' 🌸',
 		text: `Ani tato květina nedokáže popsat to jak jsi skvělá
 
-A taky možná, že dostaneš další indicii aby jsi se tady dostala dál. 11426`,
+A taky možná, že dostaneš další indicii aby jsi se tady dostala dál.`,
 		bgClass: 'from-pink-100 via-rose-100 to-fuchsia-200',
 		nextHint: 'A možná i něco co tě tady posune dál 💌',
 		emoji: '🌸'
@@ -60,13 +60,13 @@ MILUJU TĚ.`,
 	id: '4',
 	code: 'milujute',
 	title: 'A teď poslední věc… ❤️',
-	text: `Dnes za tebou přijedu v 18:30.
+	text: `Dnes za tebou přijedu kolem 18:30.
 
-Buď hezky oblečená, půjdeme na naše místo a užijeme si dnešní den.
+Připrav se na to, že to bude jeden z dalších našich večerů které v nás něco pěkného zanechají.
 
 Ale je tu malé překvapení, aby to bylo ještě větší dobrodružství…
 
-Zabal si BATŮŽEK a dej si do něj:
+Zabal si na zítra BATŮŽEK a dej si do něj:
 
  mikinu  
  tepláky  
@@ -78,7 +78,7 @@ Zabal si BATŮŽEK a dej si do něj:
  přenosný repráček  
  hezké tričko  
 
-Víc už se nedozvíš…
+Víc už se dozvíš, později
 
 Protože to necháme jen tak plynout 💫`,
 	bgClass: 'from-fuchsia-200 via-rose-200 to-pink-300',
