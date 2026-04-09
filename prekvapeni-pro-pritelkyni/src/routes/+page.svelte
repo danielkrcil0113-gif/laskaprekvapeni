@@ -12,6 +12,10 @@
 	let hasSavedProgress = false;
 	let lastUnlockedSlide: string | null = null;
 
+	let countdownMessage = '';
+	let countdownActive = false;
+	let countdownInterval: ReturnType<typeof setInterval> | null = null;
+
 	onMount(() => {
 		const hideIntroTimer = setTimeout(() => {
 			showIntro = false;
@@ -27,18 +31,84 @@
 		return () => {
 			clearTimeout(hideIntroTimer);
 			clearTimeout(showCardTimer);
+
+			if (countdownInterval) {
+				clearInterval(countdownInterval);
+			}
 		};
 	});
+
+	function getTomorrowAtTen() {
+		const now = new Date();
+		const target = new Date(now);
+		target.setDate(now.getDate() + 1);
+		target.setHours(10, 0, 0, 0);
+		return target;
+	}
+
+	function formatTimeLeft(ms: number) {
+		const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+		const hours = Math.floor(totalSeconds / 3600);
+		const minutes = Math.floor((totalSeconds % 3600) / 60);
+		const seconds = totalSeconds % 60;
+
+		return `${hours.toString().padStart(2, '0')}:${minutes
+			.toString()
+			.padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+	}
+
+	function startCountdown(targetDate: Date) {
+		countdownActive = true;
+
+		if (countdownInterval) {
+			clearInterval(countdownInterval);
+		}
+
+		const updateCountdown = () => {
+			const now = new Date();
+			const diff = targetDate.getTime() - now.getTime();
+
+			if (diff <= 0) {
+				countdownMessage = 'Teď už si to může uplatnit ❤️';
+				countdownActive = false;
+
+				if (countdownInterval) {
+					clearInterval(countdownInterval);
+					countdownInterval = null;
+				}
+
+				return;
+			}
+
+			countdownMessage = `Tenhle kód si může uplatnit až zítra od 10:00 ❤️ Zbývá: ${formatTimeLeft(diff)}`;
+		};
+
+		updateCountdown();
+		countdownInterval = setInterval(updateCountdown, 1000);
+	}
 
 	function handleSubmit() {
 		const slide = findSlideByCode(code);
 
 		if (!slide) {
 			error = 'Tenhle kód tentokrát nefunguje 💔';
+			countdownMessage = '';
+			countdownActive = false;
+			return;
+		}
+
+		const now = new Date();
+		const unlockTime = getTomorrowAtTen();
+
+		if (now < unlockTime) {
+			error = '';
+			startCountdown(unlockTime);
 			return;
 		}
 
 		error = '';
+		countdownMessage = '';
+		countdownActive = false;
 		unlockSlide(slide.id);
 		goto(`/slides/${slide.id}`);
 	}
@@ -54,6 +124,13 @@
 		lastUnlockedSlide = null;
 		code = '';
 		error = '';
+		countdownMessage = '';
+		countdownActive = false;
+
+		if (countdownInterval) {
+			clearInterval(countdownInterval);
+			countdownInterval = null;
+		}
 	}
 </script>
 
@@ -120,6 +197,12 @@
 
 					{#if error}
 						<p class="mt-4 text-sm text-rose-600">{error}</p>
+					{/if}
+
+					{#if countdownMessage}
+						<p class="mt-4 text-sm font-medium text-rose-700">
+							{countdownMessage}
+						</p>
 					{/if}
 
 					{#if hasSavedProgress}
