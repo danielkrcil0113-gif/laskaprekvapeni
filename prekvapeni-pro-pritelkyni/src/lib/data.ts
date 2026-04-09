@@ -23,12 +23,10 @@ A tohle je teprve začátek našeho malého dobrodružství.`,
 	{
 		id: '2',
 		code: '10426',
-		title: 'Něco pro tebe zítra 🌸',
-		text: `Zítra ti něco dorazí, něco co je jen kousek toho co pro mě znamenáš.
+		title: ' 🌸',
+		text: `Ani tato květina nedokáže popsat to jak jsi skvělá
 
-Chci aby jsi si pamatovala, že každá část je vlastně něco jako kousek tvýho úsměvu, hlášek když mi říkáš oumajgat, a nebo se smějeme uplným blbostem.
-
-A taky možná, že dostaneš další indicii aby jsi se tady dostala dál.`,
+A taky možná, že dostaneš další indicii aby jsi se tady dostala dál. 11426`,
 		bgClass: 'from-pink-100 via-rose-100 to-fuchsia-200',
 		nextHint: 'A možná i něco co tě tady posune dál 💌',
 		emoji: '🌸'
