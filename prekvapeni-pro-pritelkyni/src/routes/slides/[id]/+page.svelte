@@ -236,7 +236,7 @@
                                 <div class="relative">
                                     <input
                                         bind:value={code}
-                                        type="text"
+                                        type="tel"
                                         inputmode="numeric"
                                         autocomplete="off"
                                         placeholder="Zadej tajemný kód..."
