@@ -236,8 +236,8 @@
                                 <div class="relative">
                                     <input
                                         bind:value={code}
-                                        type="tel"
-                                        inputmode="numeric"
+                                        type="text"
+                                        inputmode="text"
                                         autocomplete="off"
                                         placeholder="Zadej tajemný kód..."
                                         class="w-full px-5 py-4 rounded-2xl border-2 border-rose-100 bg-white/60 text-rose-800 placeholder-rose-300 text-center text-lg font-semibold focus:outline-none focus:border-rose-400 focus:bg-white transition-all shadow-inner"
